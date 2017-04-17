@@ -25,23 +25,17 @@ class GroupsController < ApplicationController
   end
 
   def edit
-  find_group_and_check_permission
   end
 
   def update
-    find_group_and_check_permission
-
     @group.update(group_params)
     redirect_to groups_path, notice: "Update Success"
   end
 
   def destroy
-    find_group_and_check_permission
     @group.destroy
     flash[:alert] = "Group deleted"
     redirect_to groups_path
-
-    end
   end
 
   private
